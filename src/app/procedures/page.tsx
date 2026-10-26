@@ -126,7 +126,7 @@ export default function ProceduresPage(): React.ReactElement {
                 <div key={category.slug} className="border-t border-(--color-border) pt-6">
                   <div className="flex items-baseline gap-3">
                     <span aria-hidden="true" className="text-small tabular-nums text-(--color-ink-faint)">
-                      0{index + 1}
+                      {String(index + 1).padStart(2, "0")}
                     </span>
                     {category.linkSlug ? (
                       <Link
