@@ -5,7 +5,10 @@ import { Container } from "@/components/ui/Container";
 import { ConcernIcon } from "@/components/ui/ConcernIcons";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { Section } from "@/components/ui/Section";
+import { TextLink } from "@/components/ui/TextLink";
 import { concerns } from "@/config/concerns";
+import { procedureDirectory } from "@/config/procedure-directory";
+import { consultationHref } from "@/config/navigation";
 
 export const dynamic = "force-static";
 
@@ -96,6 +99,64 @@ export default function ProceduresPage(): React.ReactElement {
               );
             })}
           </ul>
+        </Container>
+      </Section>
+
+      <Section spacing="xl" background="bg-secondary">
+        <Container width="wide">
+          <span className="text-eyebrow">Full Directory</span>
+          <h2 className="text-h2 mt-4 max-w-2xl text-(--color-ink)">
+            Every procedure, by area.
+          </h2>
+          <p className="text-body-lg mt-5 max-w-2xl text-(--color-ink-muted)">
+            A complete reference of what each area typically covers. Where a
+            fuller guide already exists for an area, its name links through
+            to that page.
+          </p>
+
+          <div className="mt-14 grid grid-cols-1 gap-x-10 gap-y-12 sm:grid-cols-2 md:mt-20 lg:grid-cols-3">
+            {procedureDirectory.map((category, index) => {
+              const heading = (
+                <span className="font-(family-name:--font-display) text-xl text-(--color-ink)">
+                  {category.label}
+                </span>
+              );
+
+              return (
+                <div key={category.slug} className="border-t border-(--color-border) pt-6">
+                  <div className="flex items-baseline gap-3">
+                    <span aria-hidden="true" className="text-small tabular-nums text-(--color-ink-faint)">
+                      0{index + 1}
+                    </span>
+                    {category.linkSlug ? (
+                      <Link
+                        href={`/procedures/${category.linkSlug}`}
+                        className="transition-colors duration-(--duration-fast) ease-(--ease-editorial) hover:text-(--color-accent)"
+                      >
+                        {heading}
+                      </Link>
+                    ) : (
+                      heading
+                    )}
+                  </div>
+
+                  <ul className="mt-4 flex flex-col gap-2">
+                    {category.procedures.map((procedure) => (
+                      <li key={procedure} className="text-body text-(--color-ink-muted)">
+                        {procedure}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              );
+            })}
+          </div>
+
+          <p className="text-body mt-16 max-w-2xl text-(--color-ink-faint)">
+            This is a general reference, not medical advice specific to any
+            individual. <TextLink href={consultationHref}>Book a consultation</TextLink>{" "}
+            to discuss suitability and options directly with Dr. Dinesh Kumar.
+          </p>
         </Container>
       </Section>
     </main>

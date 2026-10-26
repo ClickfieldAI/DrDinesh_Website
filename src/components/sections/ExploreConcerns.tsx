@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { ConcernIcon } from "@/components/ui/ConcernIcons";
 import { concerns } from "@/config/concerns";
+import { proceduresHref } from "@/config/navigation";
 
 /**
  * Procedure-area photography — one distinct photo per card, never reused
@@ -35,7 +36,13 @@ export function ExploreConcerns(): React.ReactElement {
       <Container width="wide" className="py-16 md:py-24">
         <div className="flex items-baseline justify-between border-b border-(--color-border) pb-6">
           <span className="text-eyebrow">03 &mdash; Explore</span>
-          <span className="text-eyebrow hidden sm:inline">Where would you like to begin?</span>
+          <Link
+            href={proceduresHref}
+            className="text-eyebrow inline-flex items-center gap-2 text-(--color-ink) transition-colors duration-(--duration-fast) ease-(--ease-editorial) hover:text-(--color-accent)"
+          >
+            Explore All Procedures
+            <span aria-hidden="true">&rarr;</span>
+          </Link>
         </div>
 
         <ul className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
