@@ -26,7 +26,7 @@ export default function GalleryPage(): React.ReactElement {
 
           <div className="mt-16 grid grid-cols-2 gap-4 sm:gap-6 md:mt-24 md:grid-cols-3 lg:grid-cols-4">
             {clinicPhotos.map((photo) => (
-              <div
+              <figure
                 key={photo.src}
                 className="group overflow-hidden rounded-[10px] border border-(--color-border)"
               >
@@ -37,7 +37,10 @@ export default function GalleryPage(): React.ReactElement {
                   sizes="(min-width: 1024px) 25vw, (min-width: 640px) 33vw, 50vw"
                   className="transition-transform duration-(--duration-slow) ease-(--ease-editorial) group-hover:scale-[1.03]"
                 />
-              </div>
+                <figcaption className="text-eyebrow border-t border-(--color-border) px-3 py-2.5 text-(--color-ink-muted)">
+                  {photo.caption}
+                </figcaption>
+              </figure>
             ))}
           </div>
         </Container>

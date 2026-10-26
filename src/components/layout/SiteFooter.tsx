@@ -12,6 +12,34 @@ interface FooterLink {
   href: string;
 }
 
+function InstagramIcon({ className }: { className?: string }): React.ReactElement {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
+      <rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" strokeWidth="1.4" />
+      <circle cx="12" cy="12" r="4.2" stroke="currentColor" strokeWidth="1.4" />
+      <circle cx="17.2" cy="6.8" r="0.9" fill="currentColor" />
+    </svg>
+  );
+}
+
+function LinkedInIcon({ className }: { className?: string }): React.ReactElement {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
+      <rect x="3" y="3" width="18" height="18" rx="2.5" stroke="currentColor" strokeWidth="1.4" />
+      <path d="M7.5 10.2v6.3" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
+      <circle cx="7.5" cy="7.3" r="0.9" fill="currentColor" />
+      <path
+        d="M11 16.5v-3.6c0-1.5 1-2.7 2.5-2.7s2.2 1.1 2.2 2.6v3.7"
+        stroke="currentColor"
+        strokeWidth="1.4"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path d="M11 10.2v6.3" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
+    </svg>
+  );
+}
+
 function FooterGroup({ title, links }: { title: string; links: FooterLink[] }): React.ReactElement {
   return (
     <div>
@@ -110,8 +138,10 @@ export function SiteFooter(): React.ReactElement {
                       href={socialLinks.instagram}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-small text-(--color-ink-muted) transition-colors duration-(--duration-fast) ease-(--ease-editorial) hover:text-(--color-accent)"
+                      aria-label="Dr. Dinesh Kumar on Instagram (opens in a new tab)"
+                      className="flex items-center gap-2 text-small text-(--color-ink-muted) transition-colors duration-(--duration-fast) ease-(--ease-editorial) hover:text-(--color-accent)"
                     >
+                      <InstagramIcon className="h-4 w-4 shrink-0" />
                       Instagram
                     </a>
                   </li>
@@ -120,8 +150,10 @@ export function SiteFooter(): React.ReactElement {
                       href={socialLinks.linkedin}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-small text-(--color-ink-muted) transition-colors duration-(--duration-fast) ease-(--ease-editorial) hover:text-(--color-accent)"
+                      aria-label="Dr. Dinesh Kumar on LinkedIn (opens in a new tab)"
+                      className="flex items-center gap-2 text-small text-(--color-ink-muted) transition-colors duration-(--duration-fast) ease-(--ease-editorial) hover:text-(--color-accent)"
                     >
+                      <LinkedInIcon className="h-4 w-4 shrink-0" />
                       LinkedIn
                     </a>
                   </li>

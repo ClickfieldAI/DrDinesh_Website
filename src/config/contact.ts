@@ -18,6 +18,6 @@ export const contactInfo = {
  * the placeholder contact details above).
  */
 export const socialLinks = {
-  instagram: "https://www.instagram.com/dr_dinesh_aestheticsurgeon/",
+  instagram: "https://www.instagram.com/dr_dinesh_aestheticsurgeon/?hl=en",
   linkedin: "https://www.linkedin.com/in/dinesh-kumar-9a088222a/",
 };
