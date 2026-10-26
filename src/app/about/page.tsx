@@ -3,7 +3,7 @@ import Image from "next/image";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { TextLink } from "@/components/ui/TextLink";
-import { aboutPillars, aboutStory, doctorIntro, philosophy } from "@/config/about";
+import { aboutPillars, aboutStory, doctorIntro, fellowships, philosophy } from "@/config/about";
 import { consultationHref } from "@/config/navigation";
 
 export const dynamic = "force-static";
@@ -31,6 +31,15 @@ const storyFacts = [
   { label: "Fellowship", value: "Akademikliniken", detail: "Advanced Cosmetic Surgery Training, Stockholm" },
   { label: "Location", value: "Chennai, India", detail: "Multiple hospitals & clinics" },
 ];
+
+function GraduationIcon({ className }: { className?: string }): React.ReactElement {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
+      <path d="M2 8l10-4.5L22 8l-10 4.5L2 8Z" stroke="currentColor" strokeWidth="1.4" strokeLinejoin="round" />
+      <path d="M6 10.3V16c0 1.4 2.7 2.5 6 2.5s6-1.1 6-2.5v-5.7" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
+    </svg>
+  );
+}
 
 export default function AboutPage(): React.ReactElement {
   return (
@@ -133,6 +142,43 @@ export default function AboutPage(): React.ReactElement {
                 </div>
               ))}
             </dl>
+          </div>
+        </Container>
+      </Section>
+
+      <Section spacing="xl">
+        <Container width="wide">
+          <span className="text-eyebrow">Fellowships &amp; Advanced Training</span>
+          <h2 className="text-h2 mt-4 max-w-2xl text-(--color-ink)">
+            Dedicated training beyond formal qualification.
+          </h2>
+
+          <div className="mt-14 grid grid-cols-1 gap-8 border-t border-(--color-border) pt-10 sm:grid-cols-2 md:mt-20">
+            {fellowships.map((fellowship) => (
+              <div
+                key={fellowship.title}
+                className="rounded-(--radius-lg) border border-(--color-border) bg-(--color-surface) p-8 transition-transform duration-(--duration-base) ease-(--ease-editorial) hover:-translate-y-1"
+              >
+                <span className="flex h-11 w-11 items-center justify-center rounded-full bg-(--color-bg-secondary) text-(--color-accent)">
+                  <GraduationIcon className="h-5 w-5" />
+                </span>
+
+                <p className="font-(family-name:--font-display) mt-6 text-2xl text-(--color-ink)">
+                  {fellowship.title}
+                </p>
+
+                <dl className="mt-6 flex flex-col gap-4 border-t border-(--color-border) pt-6">
+                  <div>
+                    <dt className="text-eyebrow text-(--color-ink-faint)">Mentor</dt>
+                    <dd className="mt-1 text-sm text-(--color-ink-muted)">{fellowship.mentor}</dd>
+                  </div>
+                  <div>
+                    <dt className="text-eyebrow text-(--color-ink-faint)">Location</dt>
+                    <dd className="mt-1 text-sm text-(--color-ink-muted)">{fellowship.location}</dd>
+                  </div>
+                </dl>
+              </div>
+            ))}
           </div>
         </Container>
       </Section>

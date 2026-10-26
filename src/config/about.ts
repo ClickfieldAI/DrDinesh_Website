@@ -17,6 +17,12 @@ export interface PhilosophyContent {
   supporting: string[];
 }
 
+export interface Fellowship {
+  title: string;
+  mentor: string;
+  location: string;
+}
+
 /**
  * Homepage/About "Meet Dr. Dinesh" content. Facts here (qualifications,
  * fellowship training, location) are sourced from the doctor-supplied
@@ -65,6 +71,21 @@ export const aboutStory: string[] = [
   "That is why I believe the most important part of cosmetic treatment begins before the procedure itself — with listening. I take the time to understand what a patient is concerned about, what they hope to achieve and, equally importantly, what they may not need. I believe in giving honest advice, explaining realistic possibilities and discussing the benefits, limitations, risks and recovery associated with every treatment.",
   "Whether it is a subtle non-surgical enhancement or a carefully planned surgical procedure, my approach is centred around natural-looking results, personalised treatment and patient safety.",
   "For me, the most rewarding part of being a cosmetic surgeon is not simply seeing a change in appearance. It is seeing the change in confidence, comfort and the way a patient carries themselves afterwards. That is what continues to inspire me every day.",
+];
+
+/**
+ * Named fellowships / advanced training beyond the formal MBBS, MS, MCh
+ * qualification, shown on the About page's "Fellowships & Advanced
+ * Training" section. Source of truth: doctor-supplied brief. Do not add
+ * dates, institutions or additional fellowships beyond what is listed
+ * here without further verification.
+ */
+export const fellowships: Fellowship[] = [
+  {
+    title: "IAAPS Fellowship",
+    mentor: "Dr. Rajat Gupta",
+    location: "New Delhi, India",
+  },
 ];
 
 export const philosophy: PhilosophyContent = {
