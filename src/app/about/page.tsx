@@ -94,38 +94,38 @@ export default function AboutPage(): React.ReactElement {
       </section>
 
       <Section spacing="lg">
-        <div className="mx-auto w-full max-w-[1400px] px-(--gutter) lg:px-16">
-          <div className="grid grid-cols-1 gap-x-12 gap-y-12 lg:grid-cols-12">
-            <div className="lg:col-span-2">
-              <span className="text-eyebrow">02 &mdash; About</span>
+        <Container width="wide">
+          <div className="grid grid-cols-1 gap-x-16 gap-y-12 lg:grid-cols-[minmax(0,1fr)_22rem]">
+            <div className="max-w-[42rem]">
+              <span className="text-eyebrow">03 &mdash; The Full Story</span>
               <div className="mt-4 h-px w-14 bg-(--color-accent)" />
-            </div>
 
-            <div className="lg:col-span-7 lg:col-start-3">
-              {aboutStory.map((paragraph, index) => (
-                <p
-                  key={paragraph}
-                  className={`text-[1.0625rem] leading-[1.75] text-(--color-ink-muted) md:text-[1.1875rem] ${index > 0 ? "mt-9" : ""}`}
-                >
-                  {paragraph}
-                </p>
-              ))}
+              <div className="mt-8">
+                {aboutStory.map((paragraph, index) => (
+                  <p
+                    key={paragraph}
+                    className={`text-[1.0625rem] leading-[1.75] text-(--color-ink-muted) md:text-[1.1875rem] ${index > 0 ? "mt-7" : ""}`}
+                  >
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
 
-              <p className="font-(family-name:--font-display) mt-12 text-xl italic text-(--color-ink)">
+              <p className="font-(family-name:--font-display) mt-10 text-xl italic text-(--color-ink)">
                 {doctorIntro.signature}
               </p>
 
-              <p className="text-body mt-10 text-(--color-ink-faint)">
+              <p className="text-body mt-8 text-(--color-ink-faint)">
                 To discuss your own goals and concerns directly,{" "}
                 <TextLink href={consultationHref}>book a consultation</TextLink>.
               </p>
             </div>
 
-            <dl className="lg:col-span-3 lg:col-start-10 lg:self-start">
+            <dl className="lg:border-l lg:border-(--color-border) lg:pl-10 lg:self-start lg:sticky lg:top-28">
               {storyFacts.map((fact, index) => (
                 <div
                   key={fact.label}
-                  className={index > 0 ? "mt-7 border-t border-(--color-border) pt-7" : ""}
+                  className={index > 0 ? "mt-7 border-t border-(--color-border) pt-7" : "border-t border-(--color-border) pt-7 lg:border-t-0 lg:pt-0"}
                 >
                   <dt className="text-eyebrow text-(--color-ink-faint)">{fact.label}</dt>
                   <dd className="mt-3 font-(family-name:--font-display) text-xl text-(--color-ink)">{fact.value}</dd>
@@ -134,7 +134,7 @@ export default function AboutPage(): React.ReactElement {
               ))}
             </dl>
           </div>
-        </div>
+        </Container>
       </Section>
 
       <Section spacing="xl" background="bg-secondary">

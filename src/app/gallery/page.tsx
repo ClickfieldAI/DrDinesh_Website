@@ -24,16 +24,20 @@ export default function GalleryPage(): React.ReactElement {
             description="A look at Dr. Dinesh Kumar at work — in consultation, in theatre, and alongside the surgical teams he collaborates with."
           />
 
-          <div className="mt-14 grid grid-cols-2 gap-4 sm:gap-6 md:grid-cols-3 lg:grid-cols-4">
+          <div className="mt-16 grid grid-cols-2 gap-4 sm:gap-6 md:mt-24 md:grid-cols-3 lg:grid-cols-4">
             {clinicPhotos.map((photo) => (
-              <MediaPlaceholder
+              <div
                 key={photo.src}
-                aspect="portrait"
-                imageSrc={photo.src}
-                alt={photo.alt}
-                sizes="(min-width: 1024px) 25vw, (min-width: 640px) 33vw, 50vw"
-                className="rounded-2xl"
-              />
+                className="group overflow-hidden rounded-[10px] border border-(--color-border)"
+              >
+                <MediaPlaceholder
+                  aspect="portrait"
+                  imageSrc={photo.src}
+                  alt={photo.alt}
+                  sizes="(min-width: 1024px) 25vw, (min-width: 640px) 33vw, 50vw"
+                  className="transition-transform duration-(--duration-slow) ease-(--ease-editorial) group-hover:scale-[1.03]"
+                />
+              </div>
             ))}
           </div>
         </Container>
